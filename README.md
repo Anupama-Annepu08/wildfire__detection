@@ -1,5 +1,3 @@
-# 🔥 BLAZE-RT
-
 ## A Real-Time Scheduling Framework for Wildfire Detection and Emergency Response
 
 **RTOS Project – Review 1**
@@ -12,15 +10,15 @@
 
 Wildfires can spread rapidly, making timely detection and emergency response critical. Conventional sensor-monitoring systems often rely on periodic polling and simple task execution strategies, which may delay emergency alerts when the system is under heavy workload.
 
-**BLAZE-RT** is a real-time scheduling framework designed to prioritize wildfire emergency events over routine sensor-monitoring tasks.
+It is a real-time scheduling framework designed to prioritize wildfire emergency events over routine sensor-monitoring tasks.
 
 The system models routine sensor monitoring as **periodic real-time tasks** and fire-detection events as **high-priority aperiodic tasks with strict deadlines**. It evaluates classical real-time scheduling algorithms such as **Rate-Monotonic Scheduling (RMS)** and **Earliest-Deadline-First (EDF)** against a simple **First-Come-First-Served (FCFS)** baseline.
 
 The framework also demonstrates **priority inversion** and evaluates **Priority Inheritance (PI)** as a mechanism for reducing delays caused by shared-resource contention.
 
-A simulated wildfire environment using a **Cellular Automaton model** and a low-cost **Arduino sensor layer** provide realistic task-generation scenarios for evaluating scheduler performance.
+A simulated wildfire environment using a **Cellular Automaton model** and a low-cost **Arduino sensor layer** provides realistic task-generation scenarios for evaluating scheduler performance.
 
-> **Core focus:** BLAZE-RT focuses on **response timing and deadline compliance**, rather than wildfire detection accuracy.
+> **Core focus:** It focuses on **response timing and deadline compliance**, rather than wildfire detection accuracy.
 
 ---
 
@@ -32,7 +30,7 @@ This creates a critical real-time systems problem:
 
 > **How can an emergency wildfire alert be guaranteed or evaluated for timely execution when the system is already processing multiple sensor tasks?**
 
-BLAZE-RT addresses this problem by applying real-time scheduling theory to wildfire-response tasks and measuring their ability to meet predefined deadlines under different system-load conditions.
+Addresses this problem by applying real-time scheduling theory to wildfire-response tasks and measuring their ability to meet predefined deadlines under varying system load conditions.
 
 ---
 
@@ -67,7 +65,7 @@ The primary objectives of BLAZE-RT are:
 | ------------------------ | --------------------------------------------------------------------------------------------------- |
 | **Periodic Task**        | A task released at regular time intervals, such as temperature or humidity monitoring.              |
 | **Aperiodic Task**       | A task triggered by an external event, such as a detected fire.                                     |
-| **Hard Deadline**        | A time limit within which an emergency task should complete.                                        |
+| **Hard Deadline**        | A time limit by which an emergency task must be completed.                                        |
 | **RMS**                  | Assigns higher priority to tasks with shorter periods.                                              |
 | **EDF**                  | Gives priority to the task with the earliest deadline.                                              |
 | **FCFS**                 | Executes tasks according to their arrival order and serves as the baseline.                         |
@@ -150,7 +148,7 @@ The purpose of the simulation is **not to accurately predict real-world wildfire
 
 # ⏱️ Real-Time Task Model
 
-BLAZE-RT separates tasks into two major categories.
+It separates tasks into two major categories.
 
 ### Periodic Tasks
 
@@ -175,7 +173,7 @@ Fire-detection events are generated dynamically.
 | Emergency Response   | Fire confirmed      | High     |   200 ms |
 | Warning Notification | Emergency triggered | High     |   300 ms |
 
-> The exact task periods, execution times and deadlines will be determined during experimentation.
+> The exact task periods, execution times, and deadlines will be determined during experimentation.
 
 ---
 
@@ -433,14 +431,14 @@ The Arduino acts as the **sensor layer**, while Python performs task generation,
 | Development          | VS Code                           |
 | Version Control      | Git / GitHub                      |
 
-> AI tools such as ChatGPT and Claude may be used during development for planning, debugging and documentation. They are **not runtime components of the BLAZE-RT scheduler**.
+> AI tools such as ChatGPT and Claude may be used during development for planning, debugging, and documentation. They are **not runtime components of the scheduler**.
 
 ---
 
 # 📁 Project Structure
 
 ```text
-BLAZE-RT/
+RTOS/
 │
 ├── scheduler/
 │   ├── task.py
@@ -599,4 +597,4 @@ The wildfire scenario provides the application context, while the core technical
 
 ## 🔥 One-Line Summary
 
-> **BLAZE-RT is a real-time scheduling framework that evaluates how FCFS, RMS and EDF handle wildfire emergency tasks under deadline constraints, while demonstrating priority inversion and Priority Inheritance using simulated and physical sensor workloads.**
+> **It is a real-time scheduling framework that evaluates how FCFS, RMS, and EDF handle wildfire emergency tasks under deadline constraints, while demonstrating priority inversion and Priority Inheritance using simulated and physical sensor workloads.**

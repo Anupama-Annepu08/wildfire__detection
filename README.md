@@ -6,7 +6,7 @@ Overview
 
 Wildfires spread rapidly and unpredictably, and delayed detection or poorly coordinated emergency response often results in preventable loss of life and property. Most existing wildfire monitoring systems rely on periodic sensor polling with no formal guarantee on how quickly a genuine fire alert is actually processed — meaning a critical alert can get silently delayed behind routine, low-priority tasks under real sensor load.
 
-BLAZE-RT is a real-time task scheduling framework that treats routine sensor monitoring as low-priority periodic tasks and fire-detection events as high-priority tasks with strict response deadlines. It applies classical real-time scheduling theory — Rate-Monotonic Scheduling (RMS) and Earliest-Deadline-First (EDF) — to guarantee timely response, and explicitly detects and resolves priority inversion using priority inheritance.
+It is a real-time task scheduling framework that treats routine sensor monitoring as low-priority periodic tasks and fire-detection events as high-priority tasks with strict response deadlines. It applies classical real-time scheduling theory — Rate-Monotonic Scheduling (RMS) and Earliest-Deadline-First (EDF) — to guarantee timely response, and explicitly detects and resolves priority inversion using priority inheritance.
 
 Unlike most wildfire detection projects, which focus on detection accuracy, BLAZE-RT focuses on guaranteed response timing — proving that once a fire is detected, the system reacts within a bounded, predictable time, even under heavy load.
 

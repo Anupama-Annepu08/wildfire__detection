@@ -23,26 +23,8 @@ Simulate realistic wildfire spread using a Cellular Automaton model.
 Integrate a physical sensor layer (Arduino-based) for live data.
 Evaluate the system using deadline-miss rate, response latency, and system utilization, against a naive First-Come-First-Served (FCFS) baseline.
 System Architecture
-Physical Sensors (Flame / DHT11)
-        │
-Temperature / Flame Readings ──► Serial (USB) ──► Python Serial Reader
-        │                                                │
-Simulated Fire-Spread Grid (Cellular Automaton) ──────────┤
-        │                                                │
-        ▼                                                ▼
-              Real-Time Scheduler (RMS / EDF)
-                          │
-              Priority / Deadline Decision
-                          │
-              Priority Inversion Handler
-              (Priority Inheritance)
-                          │
-                    Task Execution
-                          │
-                 Alert / Response Dispatch
-                          │
-                    Live Visual Dashboard
-                 (task state, deadline-miss log)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------             
 Tech Stack
 Layer	Tools / Technologies
 Core language	Python
@@ -53,7 +35,7 @@ Hardware ↔ software link	Serial communication (pyserial)
 Visualization	pygame / matplotlib (live dashboard)
 Development aids	Claude / ChatGPT (planning, debugging, documentation)
 
-BLAZE-RT's core scheduling logic (RMS, EDF, priority inheritance) is deterministic real-time systems theory, not AI/ML. AI tools listed above were used only as development aids during building and documentation, not as a runtime component of the scheduler itself.
+Core scheduling logic (RMS, EDF, priority inheritance) is deterministic real-time systems theory, not AI/ML. AI tools listed above were used only as development aids during building and documentation, not as a runtime component of the scheduler itself.
 
 Key Concepts
 Periodic Tasks — routine sensor checks, released at fixed intervals (e.g., every 500ms).
@@ -88,21 +70,21 @@ blaze-rt/
 ├── docs/
 │   └── report/
 └── README.md
+--------------------------------------------------------------------------------------------------------------------------------------------------
 Novelty
 Applies formal real-time scheduling guarantees (RMS/EDF) to wildfire response — most existing systems focus only on detection accuracy, not response timing.
 Explicitly models and resolves priority inversion in a wildfire-response context, using priority inheritance.
 Combines a low-cost physical sensor layer with a software-simulated fire-spread grid, keeping the system realistic yet inexpensive.
 Live dashboard makes scheduling decisions and deadline compliance visible and demonstrable, not just theoretical.
 Reproducible blueprint, extensible to other safety-critical, resource-constrained edge monitoring domains beyond wildfire.
+
 Project Timeline
-Phase	Activity	Duration
-Phase 1	Literature survey, requirement analysis, finalizing scheduling approach	Week 1-2
-Phase 2	Implementing RTOS scheduler core (Task/Scheduler classes, priority inversion handling)	Week 3-4
-Phase 3	Fire-spread simulation, Arduino sensor integration, live dashboard	Week 5-6
-Phase 4	Testing, evaluation, report writing, final presentation prep	Week 7-8
-Team
-Under the guidance of: Dr. Srikanth Cherukuvada, Assistant Professor, Dept. of CSE, KLH CSE Bowrampet Campus
-Team members: [add names and roll numbers]
+Phase	|Activity	|Duration
+Phase 1	|Literature survey, requirement analysis, finalizing scheduling approach	|Week 1-2
+Phase 2	|Implementing RTOS scheduler core (Task/Scheduler classes, priority inversion handling)	|Week 3-4
+Phase 3	|Fire-spread simulation, Arduino sensor integration, live dashboard	|Week 5-6
+Phase 4	|Testing, evaluation, report writing, final presentation prep	|Week 7-8
+
 References
 Kalyanasundaram et al., A Survey on Scheduling Algorithms in Real-Time Systems — comparative analysis of RM and EDF scheduling.
 Avazov et al., An Edge Computing Environment for Early Wildfire Detection — YOLOv5-based wildfire detection on edge hardware.

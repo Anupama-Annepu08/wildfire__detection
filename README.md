@@ -398,20 +398,6 @@ The response latency before and after priority inheritance will be compared.
 
 ---
 
-# 🔌 Hardware Layer
-
-The physical prototype uses inexpensive sensors connected to an Arduino.
-
-| Component        | Purpose                                  |
-| ---------------- | ---------------------------------------- |
-| **Arduino Uno**  | Sensor interface and hardware controller |
-| **Flame Sensor** | Detects potential fire events            |
-| **DHT11**        | Measures temperature and humidity        |
-| **Buzzer**       | Provides emergency alert                 |
-| **16×2 LCD**     | Displays sensor and emergency status     |
-| **USB / Serial** | Transfers sensor data to Python          |
-
-The Arduino acts as the **sensor layer**, while Python performs task generation, scheduling, simulation and evaluation.
 
 ---
 
